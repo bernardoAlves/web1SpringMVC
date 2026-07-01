@@ -22,8 +22,6 @@ public class CadastroTopicoController {
 
     @GetMapping
     public String getCadastroTopico(@RequestParam (required = false) Integer idTopico,
-                                    @RequestParam (required = false) String titulo,
-                                    @RequestParam (required = false) String corpoTopico,
                                     HttpSession session,
                                     Model model) {
         if(session.getAttribute("usuario") == null) {
@@ -32,9 +30,11 @@ public class CadastroTopicoController {
 
         if (idTopico != null) {
             model.addAttribute("idTopico", idTopico);
+            Topico t = topicoService.getTopicoById(idTopico);
+            model.addAttribute("titulo", t.getTitulo());
+            model.addAttribute("corpoTopico", t.getCorpoTopico());
         }
-        model.addAttribute("titulo", titulo);
-        model.addAttribute("corpoTopico", corpoTopico);
+
         return "cadastroEdicao";
     }
 

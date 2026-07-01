@@ -62,7 +62,7 @@
                             </h4>
 
                             <c:if test="${topico.autor.idUsuario == sessionScope.usuario.idUsuario}">
-                                <a href=<c:url value='/cadastro-topico?idTopico=${topico.idTopico}&titulo=${topico.titulo}&corpoTopico=${topico.corpoTopico}' />
+                                <a href=<c:url value='/cadastro-topico?idTopico=${topico.idTopico}' />
                                    class="text-warning ms-3 fs-4"
                                    title="Editar tópico">
                                     <i class="bi bi-pencil-square"></i>
